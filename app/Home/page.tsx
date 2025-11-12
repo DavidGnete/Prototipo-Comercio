@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 export default function Home () {
   return (
     <section id="inicio" className="relative min-h-[600px] flex items-center justify-center bg-catalog-hero">

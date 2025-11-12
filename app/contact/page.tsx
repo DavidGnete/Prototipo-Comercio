@@ -5,10 +5,10 @@ import {Button, ButtonGroup} from "@heroui/button";
 import Benefits from "../components/benefit";
 import Map from "../components/map";
 const Contact = () => {
-  const whatsappNumber = "3108006524";
+  const whatsappNumber = "+57 3108006524";
   const address = "Calle Principal #123, Ciudad, País";
   const email = "contacto@minegocio.com";
-  const phone = "+1 234 567 890";
+  const phone = "3108006524";
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hola, me gustaría saber mas sobre este producto");
