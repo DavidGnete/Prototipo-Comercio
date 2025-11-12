@@ -5,13 +5,13 @@ import {Button, ButtonGroup} from "@heroui/button";
 import Benefits from "../components/benefit";
 import Map from "../components/map";
 const Contact = () => {
-  const whatsappNumber = "1234567890";
+  const whatsappNumber = "3108006524";
   const address = "Calle Principal #123, Ciudad, País";
   const email = "contacto@minegocio.com";
   const phone = "+1 234 567 890";
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hola, me gustaría obtener más información");
+    const message = encodeURIComponent("Hola, me gustaría saber mas sobre este producto");
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
   };
 

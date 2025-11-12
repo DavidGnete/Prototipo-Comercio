@@ -3,10 +3,11 @@ import { MessageCircle } from "lucide-react";
 import {Card, CardHeader, CardBody, CardFooter} from "@heroui/card";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
+import { StaticImageData } from "next/image";
 interface ProductCardProps {
   name: string;
   price: string;
-  image: string;
+  image: string | StaticImageData;
   whatsappNumber?: string;
 }
 
@@ -14,7 +15,7 @@ const ProductCard = ({
   name,
   price,
   image,
-  whatsappNumber = "1234567890",
+  whatsappNumber = "3108006524",
 }: ProductCardProps) => {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(`Hola, estoy interesado en: ${name} - ${price}`);
