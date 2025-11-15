@@ -1,16 +1,5 @@
-'use client'
-import Footer from "./components/footer"
-import Home from "./Home/page"
-import Products from "./components/PubliCard"
-import Login from "./login/page"
+import { redirect } from "next/navigation";
 
-
-
-export default function Homepage(){
-  return(
-    <div>
-      <Home />
-      <Products />
-    </div>
-  )
+export default function RootPage() {
+  redirect("/login");
 }

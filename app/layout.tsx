@@ -1,29 +1,21 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import './globals.css';
-import Footer from "./components/footer";
-import Links from "./components/links";
+// app/layout.tsx
+import "./globals.css"; // ✅ Import your Tailwind/global styles here
+import type { Metadata } from "next";
+import SesionProvider from "./proviers";
 
+export const metadata: Metadata = {
+  title: "My App",
+  description: "Auth and Dashboard",
+};
 
-export const metadata:Metadata = {
-  title: "layout y template",
-  description: "Demo layaout y templates"
-}
-
-interface RootLayoutprops {
-  children: React.ReactNode
-}
-
-export default function RootLayout({children}: RootLayoutprops){
-  return(
-  <html lang="es">
-    <body className="flex flex-col min-h-screen">
-      <Links />
-      <main className="flex-1 bg-gray-50 text-black">
-        {children}
-      </main>
-        <Footer />
-    </body>
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+      <SesionProvider>
+      {children}
+      </SesionProvider>
+      </body>
   </html>
-  )
+  );
 }

@@ -1,7 +1,8 @@
 "use client"
-
+import Products from "@/components/PubliCard";
 export default function Home () {
   return (
+    <div>
     <section id="inicio" className="relative min-h-[600px] flex items-center justify-center bg-catalog-hero">
       <div className="absolute inset-0 overflow-hidden">
         <img
@@ -31,6 +32,8 @@ export default function Home () {
         </div>
       </div>
     </section>
+      <Products />
+    </div>
   );
 };
 

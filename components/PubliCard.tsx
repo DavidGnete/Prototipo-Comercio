@@ -1,11 +1,10 @@
 /* import ProductCard from "./ProductCard"; */
 import ProductCard from "./productCard";
-import product1 from "../../public/images/product1.jpg";
-import product2 from  "../../public/images/product2.jpg"
-import product3 from  "../../public/images/product3.jpg"
-import product4 from  "../../public/images/product4.jpg"
-import product5 from  "../../public/images/product4.jpg"
-import product6 from  "../../public/images/product2.jpg"
+import product1 from "../public/images/product1.jpg";
+import product2 from  "../public/images/product2.jpg"
+import product3 from  "../public/images/product3.jpg"
+import product4 from  "../public/images/product4.jpg"
+import product5 from  "../public/images/product4.jpg"
 import Image from "next/image";
 
 const products = [
@@ -38,12 +37,6 @@ const products = [
     name: "Producto Exclusivo 5",
     price: "$129.99",
     image: product5,
-  },
-  {
-    id: 6,
-    name: "Producto Deluxe 6",
-    price: "$159.99",
-    image: product6,
   },
 ];
 
