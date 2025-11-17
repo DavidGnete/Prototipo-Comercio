@@ -9,7 +9,7 @@ export default function handleWhatsAppClick(whatsappNumber: string) {
   let message = "Hola, quiero hacer un pedido:\n\n";
 
   for (const id in filteredCart) {
-    const item = filteredCart[id];
+    const item = filteredCart[id] as {name:string; quantity:number};
     message += `- ${item.name}: ${item.quantity} unidad(es)\n`;
   }
 
