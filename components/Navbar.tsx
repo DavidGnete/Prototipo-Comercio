@@ -11,7 +11,7 @@ export default function Navbar() {
       {session?.user ? (
         // If user is logged in
         <div className="flex items-center gap-3">
-          <p>Hi, {session.user.name}</p>
+          <p>Bienvenido {session.user.name}</p>
 
           <button
             onClick={() => signOut({ callbackUrl: "/login" })}

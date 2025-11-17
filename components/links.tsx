@@ -18,7 +18,8 @@ export default function Links(){
           </div>
           <div className="flex items-center gap-6">
             <Link href="/Home" className="hover:text-gray-300 transition-colors font-bold">Inicio</Link>       
-            <Link href="/contact" className="hover:text-gray-200 transition-colors font-bold">Contact</Link>  
+            <Link href="/contact" className="hover:text-gray-200 transition-colors font-bold">Contact</Link> 
+            <Link href="/media" className="hover:text-gray-200 transition-colors font-bold">configuracion</Link> 
             <Navbar />     
           </div>
         </nav>

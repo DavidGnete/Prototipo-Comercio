@@ -17,13 +17,15 @@ export default function Navbar() {
     e.preventDefault()
 
     try {
-      const res= await axios.post("api/login",{
-        email,password
+      const res= await signIn("credentials",{
+        email,password,
+        redirect: false,
       });
-      if(res.data.user){
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        route.push("Home")
+        if (res?.error) {
+      toast.error("Usuario o contraseña incorrectos");
+      return;
       }
+      route.push("/Home")
     }catch(error){
       console.log(error);
       toast.error("usuario no registrado");

@@ -10,6 +10,7 @@ export default function Home () {
           alt="Hero background"
           className="w-full h-full object-cover opacity-40"
         />
+      
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40" />
       </div>
       

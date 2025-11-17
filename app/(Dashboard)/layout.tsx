@@ -15,12 +15,12 @@ interface DashboardLayoutprops {
 export default function AuthLayout({children}: DashboardLayoutprops){
   return(
   <html lang="es">
-    <body className="flex flex-col min-h-screen">
+    
       <Links />
-      <main className="flex-1 bg-gray-50 text-black">
+      <div className="flex-1 bg-gray-50 text-black">
         {children}
-      </main>
-    </body>
+      </div>
+  
     <Footer />
   </html>
   )
