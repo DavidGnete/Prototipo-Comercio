@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 
 export default function Links(){
   return(
-    <body className="flex flex-col">
-      <header className="bg-green-300 text-blanck font-sold shadow-md rounded-md">
+    <main className="bg-white text-blanck font-sold shadow-md rounded-md">
+        <div className="flex flex-col">
         <nav className="container mx-auto flex justify-between items-center p-4">
           <div className="flex gap-4">
           <svg className="w-8 text-deep-purple-accent-400 text-black" viewBox="0 0 24 24" strokeLinejoin="round" strokeWidth="2" strokeLinecap="round" strokeMiterlimit="10" stroke="currentColor" fill="none">
@@ -23,7 +23,7 @@ export default function Links(){
             <Navbar />     
           </div>
         </nav>
-      </header>
-    </body>
+    </div>
+      </main>
   )
 }

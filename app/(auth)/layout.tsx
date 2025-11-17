@@ -12,9 +12,9 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <main className="flex-1 bg-gray-50 text-black">
+    <div className="flex-1 bg-gray-50 text-black">
       {children}
-    </main>
+    </div>
   );
 }
 

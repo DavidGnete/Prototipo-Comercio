@@ -14,14 +14,11 @@ interface DashboardLayoutprops {
 
 export default function AuthLayout({children}: DashboardLayoutprops){
   return(
-  <html lang="es">
-    
+  <div className="flex flex-col min-h-screen" >
       <Links />
-      <div className="flex-1 bg-gray-50 text-black">
+      <div className="flex-1 overflow-auto">
         {children}
       </div>
-  
-    <Footer />
-  </html>
+  </div>
   )
 }
