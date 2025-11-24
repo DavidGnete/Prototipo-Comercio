@@ -50,7 +50,7 @@ export default function Media (){
                 </div>
                 <div>
                     <label className="block mb-2 text-xm font-medium text-gray-800"> Producto</label>
-                <input type="text"  placeholder="ingresa producto"
+                <input type="text"  placeholder="Nombre producto"
                     className="w-full px-4 py-2 border
                             border-gray-300 rounded-md
                             focus:outline-none focus:ring-2
@@ -59,7 +59,7 @@ export default function Media (){
                 </div>
                 <div>
                 <label className="block mb-2 text-xm font-medium text-gray-800">Precio</label>
-                <input type="number" placeholder="Ingresa precio"
+                <input type="number" placeholder="Precio producto"
                 className="w-full px-4 py-2 border
                             border-gray-300 rounded-md
                             focus:outline-none focus:ring-2
