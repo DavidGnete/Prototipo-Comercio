@@ -16,7 +16,7 @@ export default function AuthLayout({children}: DashboardLayoutprops){
   return(
   <div className="flex flex-col min-h-screen" >
       <Links />
-      <div className="flex-1 overflow-auto">
+      <div>
         {children}
       </div>
   </div>
