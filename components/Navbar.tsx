@@ -15,7 +15,7 @@ export default function Navbar() {
 
           <button
             onClick={() => signOut({ callbackUrl: "/login" })}
-            className="bg-red-600 text-white px-3 py-1 rounded"
+            className="bg-red-600 text-white px-3 py-1 rounded cursor-pointer"
           >
             Logout
           </button>
@@ -24,7 +24,7 @@ export default function Navbar() {
         // If no user is logged in
         <button
           onClick={() => signIn("google", { callbackUrl: "/Home" })}
-          className="bg-blue-600 text-white px-3 py-1 rounded"
+          className="bg-blue-600 text-white px-3 py-1 rounded cursor-pointer"
         >
           Sign In
         </button>

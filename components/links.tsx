@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {  Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclosure} from "@heroui/modal";
 import { Button } from "@heroui/button";
+import handleWhatsAppClick from './whattsap';
 
 export default function Links() {
   const [isOpen, setIsOpen] = useState(false);
@@ -157,7 +158,7 @@ export default function Links() {
               <button
                 onClick={() => setIsOpen(false)}
                 aria-label="Cerrar"
-                className="p-1 rounded hover:bg-gray-100"
+                className="p-1 rounded hover:bg-gray-100 cursor-pointer"
               >
                 ✕
               </button>
@@ -170,7 +171,7 @@ export default function Links() {
               <li>
                 <button
                   onClick={() => onSelectCategory("")}
-                  className="text-left w-full py-2 px-3 rounded hover:bg-gray-100"
+                  className="text-left w-full py-2 px-3 rounded hover:bg-gray-200 cursor-pointer"
                 >
                   Todas
                 </button>
@@ -180,7 +181,7 @@ export default function Links() {
                 <li key={cat._id}>
                   <button
                     onClick={() => onSelectCategory(cat.slug)}
-                    className="text-left w-full py-2 px-3 rounded hover:bg-gray-100"
+                    className="text-left w-full py-2 px-3 rounded hover:bg-gray-200 cursor-pointer"
                   >
                     {cat.name}
                   </button>
@@ -226,8 +227,16 @@ export default function Links() {
               })()}
             </div>
 
-            <div className="mt-6 flex justify-end">
-              <Button onPress={() => onOpenChange()} className="bg-indigo-600 text-white">Cerrar</Button>
+            <div className="mt-6 flex justify-between items-center">
+              <Button
+                onPress={() => handleWhatsAppClick('+573147754339')}
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                aria-label="Comprar via WhatsApp"
+              >
+                Comprar
+              </Button>
+
+              <Button onPress={() => onOpenChange()} className="bg-indigo-600 text-white cursor-pointer">Cerrar</Button>
             </div>
           </div>
         </div>

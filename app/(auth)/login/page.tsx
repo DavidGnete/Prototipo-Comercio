@@ -34,7 +34,14 @@ export default function Navbar() {
 }
   return (
     <div className="grid place-items-center h-screen">
-      <div className="shadow-lg p-5  border-t-4 border-green-400 bg-white border-">
+      <div className="absolute -top-15 z-5">
+      <img
+        src="/images/store.png"
+        alt="Imagen superior"
+        className="w-250 h-auto object-contain"
+      />
+    </div>
+      <div className="mt-[200px] z-0 shadow-lg p-5 border-t-4 border-green-400 bg-white rounded-md relative">
         <h1 className="text-xl font-bold my-4">Ingresa a la plataforma</h1>
         
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>

@@ -10,7 +10,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:test": "start-server-and-test dev 3000 cypress:run",
-    "cypress:test:open": "start-server-and-test dev 3000 cypress:open"
+    "cypress:test:open": "start-server-and-test dev 3000 cypress:open",
+    "test": "vitest"
   },
   "dependencies": {
     "@heroui/button": "^2.2.27",
@@ -35,6 +36,12 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.6.0",
+    "jsdom": "^22.0.0",
+    "ts-node": "^10.9.1",
+    "vitest": "^1.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/cypress": "^0.1.6",
     "@types/google.maps": "^3.58.1",

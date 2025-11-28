@@ -4,7 +4,12 @@ import { Product } from "@/models/products";
 import { MongoConnection } from "@/lib/conection/db";
 
 export async function GET(req: Request) {
-  await MongoConnection();
+  try {
+    await MongoConnection();
+  } catch (err: any) {
+    console.error('MongoDB connection failed at route start', err?.message || err);
+    return NextResponse.json({ error: 'Database connection failed', details: err?.message || null }, { status: 503 });
+  }
 
   const url = new URL(req.url);
   const page = parseInt(url.searchParams.get("page") || "1");
@@ -36,8 +41,13 @@ export async function GET(req: Request) {
     const mongoose = (await import('mongoose')).default; /* ADDED */
     if (mongoose.connection.readyState !== 1) {
       console.error('MongoDB connection not ready', mongoose.connection.readyState);
-      return NextResponse.json({ error: 'Database connection not established' }, { status: 500 });
+      return NextResponse.json({ error: 'Database connection not established' }, { status: 503 });
     }
+    // if category param was provided but couldn't be resolved we return an empty page
+    if (category && filter.category === null) {
+      return NextResponse.json({ products: [], totalPages: 0, page }, { status: 200 });
+    }
+
     const totalProducts = await Product.countDocuments(filter);
     const totalPages = Math.ceil(totalProducts / limit);
 

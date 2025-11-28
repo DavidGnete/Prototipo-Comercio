@@ -19,6 +19,7 @@ export default function AuthLayout({children}: DashboardLayoutprops){
       <div className="pt-16"> {/* ensure content is not hidden under fixed header */}
         {children}
       </div>
+      <Footer />
   </div>
   )
 }

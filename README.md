@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Tests
+
+This project includes two kinds of tests:
+
+- Unit tests with Vitest + Testing Library
+- End-to-end tests with Cypress
+
+How to run unit tests:
+
+```bash
+npm ci            # install (or `npm install` if you prefer)
+npm test          # run Vitest unit tests
+```
+
+How to run Cypress E2E tests:
+
+```bash
+# Interactive
+npm run cypress:open
+
+# Run headlessly (requires a running dev server)
+npm run cypress:test
+```
+
+The repository already contains several Cypress specs under `cypress/e2e` and a sample unit test for the `ProductCard` component.

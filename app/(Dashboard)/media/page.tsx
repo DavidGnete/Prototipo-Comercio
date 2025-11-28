@@ -118,12 +118,12 @@ export default function Media (){
                     onChange={(e) => setprice(e.target.value)} />
                 </div>
                 <div>
-                <label className="block mb-2 text-xm font-medium text-gray-800">Categoria</label>
+                <label className="block mb-2 text-xm font-medium text-gray-800 ">Categoria</label>
                                 <select
                                     aria-label="Seleccionar categoría"
                                     value={category}
                                     onChange={(e) => setcategory(e.target.value)}
-                                    className="border p-2 rounded w-full"
+                                    className="border p-2 rounded w-full cursor-pointer"
                                 >
                                     <option value="">Seleccione una categoría</option>
                                     {(() => {
@@ -132,9 +132,7 @@ export default function Media (){
                                             { slug: "bebidas", name: "Bebidas" },
                                             { slug: "lacteos", name: "lacteos" },
                                             { slug: "panaderia", name: "panaderia"},
-                                            { slug: "mekato", name: "mekato" },
                                             { slug: "frutas", name: "Frutas" },
-                                            { slug: "Aseo / Hogar", name: "Aseo / Hogar"},
                                         ];
 
                                         // merge server categories with defaults, avoid duplicates by slug
