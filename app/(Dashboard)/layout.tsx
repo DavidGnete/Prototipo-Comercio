@@ -16,7 +16,7 @@ export default function AuthLayout({children}: DashboardLayoutprops){
   return(
   <div className="flex flex-col min-h-screen" >
       <Links />
-      <div>
+      <div className="pt-16"> {/* ensure content is not hidden under fixed header */}
         {children}
       </div>
   </div>

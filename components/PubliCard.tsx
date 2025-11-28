@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import ProductCard from "./productCard";
 import { Button } from "@heroui/button";
 import { FaWhatsapp } from "react-icons/fa";
@@ -10,16 +11,28 @@ export default function Products() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams?.get("category") || "";
+
+
   useEffect(() => {
     const loadProducts = async () => {
-      const res = await fetch(`/api/products?page=${page}&limit=6`);
+      const url = new URL(`/api/products?page=${page}&limit=8`, location.origin); /* ADDED: request 12 items per page (4 cols x 3 rows) */
+      if (selectedCategory) url.searchParams.set("category", selectedCategory);
+
+      const res = await fetch(url.toString());
       const data = await res.json();
-      setProducts(data.products);
+      setProducts(Array.isArray(data.products) ? data.products : []);
       setTotalPages(data.totalPages);
     };
 
     loadProducts();
-  }, [page]);
+  }, [page, selectedCategory]);
+
+
+  useEffect(() => {
+    setPage(1);
+  }, [selectedCategory]);
 
   return (
     <section id="productos" className="py-16 md:py-24 bg-white">
@@ -28,37 +41,36 @@ export default function Products() {
           Nuestros Productos
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"> 
           {products.map((product: any) => (
             <ProductCard
               key={product._id}
               public_id={product.public_id}
               name={product.name}
+              category ={product.category?.name || product.category}
               price={product.price}
             />
           ))}
         </div>
 
-        {/* Paginación */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center items-center gap-6 mt-10">
           <button
             disabled={page === 1}
             onClick={() => setPage(page - 1)}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-5 py-2 bg-gray-300 text-gray-700 rounded-lg text-lg font-medium shadow-sm hover:bg-gray-400 disabled:opacity-50 disabled:hover:bg-gray-300 transition cursor-pointer"
           >
             Anterior
           </button>
-          <span className="px-3 py-1">{page} / {totalPages}</span>
+          <span className="px-3 py-1 font-bold">{page} / {totalPages}</span>
           <button
             disabled={page === totalPages}
             onClick={() => setPage(page + 1)}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-5 py-2 bg-gray-300 text-gray-700 rounded-lg text-lg font-medium shadow-sm hover:bg-gray-400 disabled:opacity-50 disabled:hover:bg-gray-300 transition cursor-pointer"
           >
             Siguiente
           </button>
         </div>
-
-        {/* Botón WhatsApp */}
+{/* 
         <div className="flex justify-center mt-6">
           <Button
             className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md"
@@ -66,7 +78,7 @@ export default function Products() {
           >
             <FaWhatsapp className="mr-2" /> Enviar Pedido
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -12,5 +12,7 @@ export async function MongoConnection() {
     console.log("Connected to MongoDB ✔️");
   } catch (error) {
     console.error("Failed to connect to MongoDB ❌", error);
+    // make callers aware the connection failed so they can handle appropriately
+    throw error;
   }
 }

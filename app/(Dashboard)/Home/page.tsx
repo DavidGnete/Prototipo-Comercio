@@ -4,35 +4,59 @@ import Products from "@/components/PubliCard";
 export default function Home () {
   return (
     <div>
-    <section id="inicio" className="relative min-h-[600px] flex items-center justify-center bg-green-400">
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="/images/supermercado.jpg"
-          alt="Hero background"
-          className="w-full h-full object-cover opacity-80"
-        />
-      
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40" />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground ">
-            Descubre la Excelencia en Cada Producto
-          </h1>
-          <button
-            onClick={() => {
-              const element = document.getElementById("productos");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-primary-foreground  rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl bg-orange-500">
-            Ver Productos
-          </button>
+      <section id="inicio" className="relative w-full">
+        <div className="w-full h-[2px] bg-gray-300 mt-2"></div>
+
+        {/* VIDEO */}
+        <div className="w-full">
+          <video
+            className="w-full h-[210px] object-cover object-[80%_20%]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/video/tienda.mp4" type="video/mp4" />
+          </video>
+
+          {/* Línea separadora */}
+          <div className="w-full h-[2px] bg-gray-300 mt-2"></div>
         </div>
-      </div>
-    </section>
+
+        {/* IMAGEN + TEXTO CENTRADO */}
+        <div className="relative w-full h-[600px] overflow-hidden">
+          <img
+            src="/images/supermercado.jpg"
+            alt="Hero background"
+            className="w-full h-full object-cover opacity-80"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40" />
+
+          {/* ⭐ TEXTO CENTRADO DENTRO DE LA IMAGEN */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="max-w-3xl mx-auto text-center text-white">
+              <h1 className="text-4xl md:text-6xl font-bold mb-9">
+                Descubre la Excelencia en Cada Producto
+              </h1>
+              <button
+                onClick={() => {
+                  const element = document.getElementById("productos");
+                  if (element) element.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl cursor-pointer"
+              >
+                Ver Productos
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-[2px] bg-gray-300 mt-2"></div>
+
       <Products />
     </div>
   );
 };
-

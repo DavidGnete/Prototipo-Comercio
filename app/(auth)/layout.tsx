@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "react-toastify/dist/ReactToastify.css";
+import styles from "../style/layout.module.css"
 
 export const metadata: Metadata = {
   title: "layout y template",
@@ -12,7 +13,7 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <div className="flex-1 bg-gray-50 text-black">
+    <div className={styles.layout}>
       {children}
     </div>
   );

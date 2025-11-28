@@ -42,7 +42,7 @@ export default function RegisterForm() {
 
       return (
         <div className="grid place-items-center h-screen">
-          <div className="shadow-lg p-5  border-t-4 border-green-400">
+          <div className="shadow-lg p-5  border-t-4 border-green-400 bg-white ">
             <h1 className="text-xl font-bold my-4">Registrate</h1>
             <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                 <input
