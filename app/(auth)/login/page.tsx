@@ -34,7 +34,7 @@ export default function Navbar() {
 }
   return (
     <div className="grid place-items-center h-screen">
-      <div className="absolute -top-15 z-5">
+      <div className="absolute -top-15 z-0">
       <img
         src="/images/store.png"
         alt="Imagen superior"
