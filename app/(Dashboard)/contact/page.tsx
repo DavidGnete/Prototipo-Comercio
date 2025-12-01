@@ -1,9 +1,12 @@
 "use client"
+
 import { MapPin, Phone, Mail} from "lucide-react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import {Button, ButtonGroup} from "@heroui/button";
 import Benefits from "../../../components/benefit";
 import Map from "../../../components/map";
+
+
 const Contact = () => {
   const whatsappNumber = "+57 3108006524";
   const address = "Calle Principal #123, Ciudad, País";

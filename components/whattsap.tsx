@@ -1,4 +1,7 @@
+"use client";
+
 export default function handleWhatsAppClick(whatsappNumber: string) {
+  if (typeof window === 'undefined') return;
   const cart = JSON.parse(localStorage.getItem("cart") || "{}");
 
   // Filtramos solo los productos con quantity > 0
@@ -19,8 +22,12 @@ export default function handleWhatsAppClick(whatsappNumber: string) {
   }
 
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, "_blank");
+  if (typeof window !== 'undefined') {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, "_blank");
+  }
 
   // Limpiamos el carrito después de enviar
-  localStorage.removeItem("cart");
+  try {
+    localStorage.removeItem("cart");
+  } catch {}
 }

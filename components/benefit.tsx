@@ -1,3 +1,5 @@
+"use client";
+
 import { Award, Truck, CreditCard } from "lucide-react";
 
 const benefits = [

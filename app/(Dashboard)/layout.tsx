@@ -1,12 +1,10 @@
-import { Metadata } from "next";
-import Links from "../../components/links";
+"use client";
+
+/* import Links from "../../components/links"; */
+import dynamic from "next/dynamic";
 import Footer from "../../components/footer";
 
-
-export const metadata:Metadata = {
-  title: "layout y template",
-  description: "Demo layaout y templates"
-}
+const Links = dynamic(() => import("../../components/links"), { ssr: false });
 
 interface DashboardLayoutprops {
   children: React.ReactNode

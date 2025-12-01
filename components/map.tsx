@@ -4,7 +4,8 @@ import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Map = () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDdQo29JnnlCr3DB14GeHDrFldFaKMLdtY",
+    // use env var for safety; fallback to empty string for build
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
 
   const center = { lat: 6.256058128349799, lng: -75.61064063276916 };
@@ -29,16 +30,18 @@ const Map = () => {
         disableDefaultUI: true, // oculta controles por defecto si quieres
       }}
     >
-      <Marker
-        position={center}
-        icon={{
-          url: "https://static.vecteezy.com/system/resources/previews/017/178/337/original/location-map-marker-icon-symbol-on-transparent-background-free-png.png",
-          scaledSize: new google.maps.Size(40, 40),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(20, 40),
-        }}
-        title="Mi ubicación"
-      />
+      {typeof window !== 'undefined' && (window as any).google ? (
+        <Marker
+          position={center}
+          icon={{
+            url: "https://static.vecteezy.com/system/resources/previews/017/178/337/original/location-map-marker-icon-symbol-on-transparent-background-free-png.png",
+            scaledSize: new (window as any).google.maps.Size(40, 40),
+            origin: new (window as any).google.maps.Point(0, 0),
+            anchor: new (window as any).google.maps.Point(20, 40),
+          }}
+          title="Mi ubicación"
+        />
+      ) : null}
     </GoogleMap>
     </div>
   );

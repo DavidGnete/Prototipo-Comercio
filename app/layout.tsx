@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <SesionProvider>
       <body>
-      {children}
+        <SesionProvider>
+          {children}
+        </SesionProvider>
       </body>
-      </SesionProvider>
-  </html>
+    </html>
   );
 }
