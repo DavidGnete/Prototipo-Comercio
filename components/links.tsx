@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {  Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclosure} from "@heroui/modal";
 import { Button } from "@heroui/button";
-import handleWhatsAppClick from './whattsap';
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import axios from "axios";
+
+/* import handleWhatsAppClick from './whattsap'; */
 
 export default function Links() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +16,9 @@ export default function Links() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { isOpen: isOpenModal, onOpen, onOpenChange } = useDisclosure();
+
+  const [preferenceId, setPreferenceId] = useState<string | null>(null);
+  const publicKey = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY || "";
 
   const [cartCount, setCartCount] = useState(0); 
 
@@ -39,6 +45,28 @@ export default function Links() {
       mounted = false;
     };
   }, [isOpen]);
+
+   useEffect(() => {
+    initMercadoPago(publicKey, { locale: "es-CO" });
+  }, []);
+  const createpreferenceid = async () => {
+    const response = await axios.post(
+      "/api/pago",
+      {
+        title: name,
+        unit_price: 100,
+        quantity: 1,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response.data.preferenceId) {
+      setPreferenceId(response.data.preferenceId);
+    }
+  };
 
 
   const computeCartTotal = () => {
@@ -229,12 +257,12 @@ export default function Links() {
 
             <div className="mt-6 flex justify-between items-center">
               <Button
-                onPress={() => handleWhatsAppClick('+573147754339')}
-                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-                aria-label="Comprar via WhatsApp"
+                onClick={createpreferenceid}
+                className="bg-indigo-600 text-white cursor-pointer"
               >
-                Comprar
+                Compra por mercado pago
               </Button>
+              {preferenceId && <Wallet initialization={{ preferenceId }} />}
 
               <Button onPress={() => onOpenChange()} className="bg-indigo-600 text-white cursor-pointer">Cerrar</Button>
             </div>
